@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shoed_student/core/presentation/widgets/name_widget.dart';
+import 'package:shoed_student/core/presentation/widgets/online_flag_widget.dart';
 
 class AuthorCard extends StatelessWidget {
   const AuthorCard({
@@ -10,6 +12,7 @@ class AuthorCard extends StatelessWidget {
 
   static const backgroundColor = Color(0xFF393c43);
   static const paddingAroundImage = EdgeInsets.all(8.0);
+  static const paddingAroundUserInfo = EdgeInsets.only(left: 40.0, bottom: 8.0);
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,27 @@ class AuthorCard extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
-        child: Padding(
-          padding: paddingAroundImage,
-          child: Image.network(
-            imageNetwork,
-          ),
+        child: Stack(
+          alignment: Alignment.bottomLeft,
+          children: [
+            Image.network(
+              imageNetwork,
+              fit: BoxFit.fill,
+            ),
+            const Column(
+              children: [
+                Padding(
+                  padding: paddingAroundUserInfo,
+                  child: NameProfessionWidget(
+                    profession: 'UI/UX Designer',
+                    name: 'Elena',
+                  ),
+                ),
+                OnlineFlagWidget(isOnline: true),
+                SizedBox(height: 20.0),
+              ],
+            )
+          ],
         ),
       ),
     );

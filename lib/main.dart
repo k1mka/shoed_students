@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shoed_student/core/presentation/main_screen/main_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shoed_student/core/theme/palette.dart';
 
 void main() {
   runApp(const ShoedStudent());
@@ -12,7 +13,10 @@ class ShoedStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Palette.gray,
+      ),
         localizationsDelegates: [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,

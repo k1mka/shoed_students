@@ -9,6 +9,6 @@ class ShoedStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const MaterialApp(home: Scaffold());
   }
 }
